@@ -1,0 +1,24 @@
+{
+    "data":[
+       {
+          "latitude":38.260083,
+          "longitude":-85.704721,
+          "type":"postalcode",
+          "name":"40206",
+          "number":"None",
+          "postal_code":"40206",
+          "street":"None",
+          "confidence":1,
+          "region":"Kentucky",
+          "region_code":"KY",
+          "county":"Jefferson County",
+          "locality":"Louisville",
+          "administrative_area":"None",
+          "neighbourhood":"None",
+          "country":"United States",
+          "country_code":"USA",
+          "continent":"North America",
+          "label":"40206, Louisville, KY, USA"
+       }
+    ]
+ }
