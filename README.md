@@ -1,4 +1,4 @@
-### Coffee Forecast
+# Coffee Forecast
 
 ## Summary
 This repo is intended to fulfill the project requirements for the Code Louisville Data Analysis 1 Class.
