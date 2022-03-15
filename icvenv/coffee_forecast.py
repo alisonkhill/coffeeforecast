@@ -7,25 +7,21 @@ import datetime
 zip = input('What is your zip code?\n')
 
 # Convert zip code to latitude and longitude using positionstack API
-
 LOCATION_API_KEY = 'e4c7ae4d85a39faf63881294a9bbc35d'
-location_url = 'http://api.positionstack.com/v1/forward?access_key='+LOCATION_API_KEY+'&query='+zip+'&country=US&output=json'
-
-location_request = requests.get(location_url)
+LOCATION_URL = 'http://api.positionstack.com/v1/forward?access_key='+LOCATION_API_KEY+'&query='+zip+'&country=US&output=json'
+location_request = requests.get(LOCATION_URL)
 location_json = location_request.json()
 lat = str(location_json.get('data')[0].get('latitude'))
 lon = str(location_json.get('data')[0].get('longitude'))
 
-# Get temperature and conditions from open weather map API using output latitude and longitude
- 
-weather_api_key = '67da29cb91129f1a68c1c06c1be92daa'
-weather_url = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&appid='+weather_api_key+'&units=imperial'
-
-weather_request = requests.get(weather_url)
+# Get temperature and conditions from open weather map API using latitude and longitude
+WEATHER_API_KEY = '67da29cb91129f1a68c1c06c1be92daa'
+WEATHER_URL = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&appid='+WEATHER_API_KEY+'&units=imperial'
+weather_request = requests.get(WEATHER_URL)
 weather_json = weather_request.json()
 
-# Report coffee recommendation based on temperature and conditions
-def recommendation(feels_like):
+# Function to recommend Hot or Iced based on relative temperature and conditions
+def recommendation():
     if feels_like < 50:
         return('Hot')
     elif 60 > feels_like > 50:
@@ -47,7 +43,7 @@ for x in range(0,7):
     # Get conditions
     conditions = weather_json.get('daily')[x].get('weather')[0].get('main')
     # Get recommendation
-    rec = recommendation(feels_like)
+    rec = recommendation()
     # Put into dictionary of lists
     forecast[day] = [feels_like, conditions, rec]
     
