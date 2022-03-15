@@ -1,3 +1,6 @@
+# Config file to hide API keys
+config.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
