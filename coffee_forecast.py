@@ -1,4 +1,5 @@
 # Import necessary packages
+import config
 import requests
 import pandas as pd
 import datetime
@@ -7,16 +8,14 @@ import datetime
 zip = input('What is your zip code?\n')
 
 # Convert zip code to latitude and longitude using positionstack API
-LOCATION_API_KEY = 'e4c7ae4d85a39faf63881294a9bbc35d'
-LOCATION_URL = 'http://api.positionstack.com/v1/forward?access_key='+LOCATION_API_KEY+'&query='+zip+'&country=US&output=json'
+LOCATION_URL = 'http://api.positionstack.com/v1/forward?access_key='+config.LOCATION_API_KEY+'&query='+zip+'&country=US&output=json'
 location_request = requests.get(LOCATION_URL)
 location_json = location_request.json()
 lat = str(location_json.get('data')[0].get('latitude'))
 lon = str(location_json.get('data')[0].get('longitude'))
 
 # Get temperature and conditions from open weather map API using latitude and longitude
-WEATHER_API_KEY = '67da29cb91129f1a68c1c06c1be92daa'
-WEATHER_URL = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&appid='+WEATHER_API_KEY+'&units=imperial'
+WEATHER_URL = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&appid='+config.WEATHER_API_KEY+'&units=imperial'
 weather_request = requests.get(WEATHER_URL)
 weather_json = weather_request.json()
 
