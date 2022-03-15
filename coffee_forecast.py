@@ -32,6 +32,7 @@ def recommendation():
     else:
         return('Iced')
 
+# Create dictionary of weather and recommendations mapped to each date
 forecast = {}
 for x in range(0,7):
     # Get date from json
@@ -46,6 +47,7 @@ for x in range(0,7):
     rec = recommendation()
     # Put into dictionary of lists
     forecast[day] = [feels_like, conditions, rec]
-    
+
+# Output as table using pandas module    
 df = pd.DataFrame.from_dict(forecast, orient = 'index', columns = ['Feels Like', 'Conditions', 'Coffee Order'])
 print(df)
