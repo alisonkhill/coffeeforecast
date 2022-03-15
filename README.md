@@ -23,35 +23,40 @@ Finally, run: `python coffee_forecast.py`
 
 ## Code Louisville Requirements
 
-### The project is uploaded to your GitHub repository and shows at minimum 5 separate commits
-Gitignore should be used to keep any secrets/passwords used to access APIs / data sources out of the Github repository
+- [x] The project is uploaded to your GitHub repository and shows at minimum 5 separate commits.
+- [ ] Gitignore should be used to keep any secrets/passwords used to access APIs / data sources out of the Github repository
 
-### The project includes a README file that explains the following:
-- A one-paragraph or longer description of what your project is about.
-- Relevant packages that need to be installed to run the project.
-- Which 3+ features you have included from the below lists to meet the requirements
-- Any special instructions are required for the reviewer to run your project. (For example: “run python main.py” from the command line)
+> The project includes a README file that explains the following:
+- [x] A one-paragraph or longer description of what your project is about.
+- [x] Relevant packages that need to be installed to run the project.
+- [x] Which 3+ features you have included from the below lists to meet the requirements
+- [x] Any special instructions are required for the reviewer to run your project. (For example: “run python main.py” from the command line)
 
-### The project should implement a simple data analysis by reading data, performing calculations on the data, and displaying the results.
+- [x] > The project should implement a simple data analysis by reading data, performing calculations on the data, and displaying the results.
 
 ### Choose at least 1 item from each category on the Features List below and implement them in your project
 
 #### Category 1: Python Programming Basics
 > Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program.
+
 A dictionary of lists called "forecast" is created and populated with data from the Open Weather Map API. Each date is a key, with the corresponding value being a list containing relative temperature, conditions, and coffee recommendation.
 
 #### Category 2: Utilize External Data:
 > Connect to an external/3rd party API and read data into your app
+
 Data from two APIs are used: positionstack and Open Weather Map
 
 #### Category 3: Data Display
 > Display data in tabular form
+
 The output of the program is a table showing the relative temperature, conditions, and coffee order recommended for each date.
 
 #### Category 4: Best Practices
 > The program should utilize a virtual environment and document library dependencies in a requirements.txt file
+
 See requirements.txt file in repo.
 
 #### Stretch Features (optional):
 > Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.
+
 Pandas is used to display the final table.
