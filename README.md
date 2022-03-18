@@ -11,6 +11,16 @@ First, the user inputs their zip code. The positionstack API is then used to con
 Coffee Forecast uses the requests, datetime, and pandas packages
 
 ## Setup Instructions
+There are two version of the coffeeforecast program in this repo:
+- coffeeforecast_api.py requires use of two API Keys. These are free and can be requested at the following links:
+    - positionstack: https://positionstack.com/signup/free
+        - Replace the text "config.LOCATION_API_KEY" with this key
+    - OpenWeatherMap: https://home.openweathermap.org/users/sign_up
+        - Replace the text "config.WEATHER_API_KEY" with this key
+- coffeeforecast_json.py provides a way to test the program without using an API. 2 sample json files representing output from the APIs are included in the repo to use instead.
+    - These are static and therefore used fixed locations and weather for Louisville, KY 40206.
+    - The coordinates are printed as well as the coffee forecast to demonstrate the functionality of the program to access both location and weather data.
+
 To run this program, first create a virtual environment with the command: `python3 -m venv virtual-env`
 
 After creating the virtual environment, activate it on Mac/Linux with the command: `source virtual-env/bin/activate`

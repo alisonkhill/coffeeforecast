@@ -3,9 +3,6 @@ import json
 import pandas as pd
 import datetime
 
-# Get zip code from user
-zip = input('What is your zip code?\n')
-
 # Convert zip code to latitude and longitude using positionstack json
 with open('location_example.json') as x:
     location_json = json.load(x)
@@ -46,4 +43,5 @@ for x in range(0,7):
 
 # Output as table using pandas module    
 df = pd.DataFrame.from_dict(forecast, orient = 'index', columns = ['Coffee Order', 'Feels Like', 'Conditions'])
+print('The coffee forecast for coordinates ' + lat + ', ' + lon + ' is:')
 print(df)
