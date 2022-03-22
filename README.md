@@ -19,11 +19,13 @@ There are two version of the coffeeforecast program in this repo:
     - These are static and therefore used fixed locations and weather for Louisville, KY 40206.
     - The coordinates are printed as well as the coffee forecast to demonstrate the functionality of the program to access both location and weather data.
 
-To run this program, first create a virtual environment with the command: `python3 -m venv virtual-env`
+To run this program on Mac or Linux:
+- open the Terminal and create a virtual environment with the command `python3 -m venv virtual-env`
+- activate the virtual environment with the command `source virtual-env/bin/activate`
 
-After creating the virtual environment, activate it on Mac/Linux with the command: `source virtual-env/bin/activate`
-
-For Windows: `virtual-env\Scripts\activate.bat`
+To run this program on Windows, 
+- open the Command Prompt and create a virtual environment with the command `python -m venv virtual-env`
+- activate the virtual environment with the command `virtual-env\Scripts\activate.bat`
 
 After activating the virtual environment, install packages in the requirements.txt file using: `python -m pip install -r requirements.txt`
 
