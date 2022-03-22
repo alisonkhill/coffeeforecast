@@ -15,7 +15,7 @@ There are two version of the coffeeforecast program in this repo:
 - [coffeeforecast_api.py](coffeeforecast_api.py) requires use of two API Keys. These are free and can be requested at the following links:
     - [positionstack](https://positionstack.com/signup/free)
     - [OpenWeatherMap](https://home.openweathermap.org/users/sign_up)
-- coffeeforecast_json.py provides a way to test the program without using an API. 2 sample json files representing output from the APIs are included in the repo to use instead.
+- [coffeeforecast_json.py](coffeeforecast_json.py) provides a way to test the program without using an API. 2 sample json files representing output from the APIs are included in the repo to use instead.
     - These are static and therefore used fixed locations and weather for Louisville, KY 40206.
     - The coordinates are printed as well as the coffee forecast to demonstrate the functionality of the program to access both location and weather data.
 
