@@ -49,7 +49,6 @@ for x in range(0,7):
 
 # Output as table using pandas module to create dataframe    
 df = pd.DataFrame.from_dict(forecast, orient = 'index', columns = ['Coffee Order', 'Feels Like', 'Conditions'])
-df.style
 print('The coffee forecast for coordinates ' + lat + ', ' + lon + ' is:')
 print(df)
 print('Please caffeinate responsibly.')

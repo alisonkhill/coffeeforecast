@@ -3,23 +3,23 @@ import requests
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
-
-print('Greetings, coffee drinker!')
+import matplotlib.patches as mpatches
 
 # Get zip code from user and validate that it's 5 digits
-def get_valid_zip():
+def get_zip():
     while True:
         global zip_code
-        zip_code = input('What is your zip code?\n')
+        zip_code = input('Greetings, coffee drinker!\nWhat is your zip code?\n')
         if len(zip_code) == 5:
             break
         else:
             print('Your zip code must be 5 digits.')
             continue
     return zip_code        
-     
+
+
 # Validate API Key and get lat and lon for weather URL
-def get_valid_location():
+def get_location():
     while True:
         try:
             location_api_key = input('Please enter a positionstack API Key. You can request one for free at https://positionstack.com/signup/free \n')
@@ -38,7 +38,7 @@ def get_valid_location():
     return lat, lon
 
 # Validate OpenWeatherMap API key and get temperature and conditions from open weather map API using latitude and longitude
-def get_weather_key():
+def get_weather():
     while True:
         try:
             weather_api_key = input('Please enter an OpenWeatherMap API Key. You can request one for free at https://home.openweathermap.org/users/sign_up \n')
@@ -89,11 +89,11 @@ def get_forecast():
     # Output as table using pandas module    
     global df
     df = pd.DataFrame.from_dict(forecast, orient = 'index', columns = ['Coffee Order','Feels Like', 'Conditions'])
-    return df
+    
 
-get_valid_zip()
-get_valid_location()
-get_weather_key()
+get_zip()
+get_location()
+get_weather()
 get_forecast()
 
 print('\n Here is your coffee forecast. Please caffeinate responsibly.\n')
@@ -101,15 +101,42 @@ print(df)
 
 # Output as bar graph using matplotlib
 # First access dates and "feels likes" from forecast dictionary to create lists
-temps = {}
-for key, val in forecast.items():
-    temps[key] = val[1]   
-dates = list(temps.keys())
-temps_F = list(temps.values())
+keys_list = list(forecast)
+coffee_list = []
+temp_list = []
+conditions_list = []
+for key in keys_list:
+    coffee_list.append(forecast.get(key)[0])
+    temp_list.append(forecast.get(key)[1])
+    conditions_list.append(forecast.get(key)[2])
+
+conditions_colors = []
+for condition in conditions_list:
+    if condition == "Clouds" or condition == 'Fog':
+        conditions_colors.append('grey')
+    elif condition == 'Clear':
+        conditions_colors.append('yellow')
+    elif condition == 'Rain' or condition == 'Drizzle' or condition == 'Thunderstorm':
+        conditions_colors.append('blue')
+    elif condition == 'Snow':
+        conditions_colors.append('whitesmoke')
+    else:
+        conditions_colors.append('black')
 
 # Plot bar chart with dates on the x-axis and "feels likes" on the y
-plt.bar(dates, temps_F)
+
+# Define legend colors
+clear_patch = mpatches.Patch(color='yellow', label='Clear')
+clouds_patch = mpatches.Patch(color = 'grey', label = 'Clouds')
+rain_patch = mpatches.Patch(color = 'blue', label = 'Rain')
+snow_patch = mpatches.Patch(color = 'whitesmoke', label = 'Snow')
+other_patch = mpatches.Patch(color = 'black', label = 'Other')
+
+plt.figure(figsize=(7,9))
+plt.bar(keys_list, temp_list, color = conditions_colors, edgecolor = 'black')
 plt.title('Coffee Forecast')
 plt.xlabel('Date')
+plt.xticks(rotation = 35)
 plt.ylabel('"Feels Like" (F)')
+plt.legend(handles = [clear_patch, clouds_patch, rain_patch, snow_patch, other_patch])
 plt.show()
