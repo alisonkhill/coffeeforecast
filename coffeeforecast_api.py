@@ -2,6 +2,7 @@
 import requests
 import pandas as pd
 import datetime
+import matplotlib.pyplot as plt
 
 print('Greetings, coffee drinker!')
 
@@ -67,12 +68,13 @@ def recommendation():
 
 # Create dictionary of weather and recommendations mapped to each date
 def get_forecast():
+    global forecast
     forecast = {}
     for x in range(0,7):
         # Get date from json
         dt = weather_json.get('daily')[x].get('dt')
         # Convert date to strftime
-        day = datetime.datetime.utcfromtimestamp(dt).strftime('%A %d %B %Y')
+        day = datetime.datetime.utcfromtimestamp(dt).strftime('%a %d %b')
         # Get Feels Like temperature
         global feels_like
         feels_like = round(weather_json.get('daily')[x].get('feels_like').get('day'))
@@ -96,3 +98,18 @@ get_forecast()
 
 print('\n Here is your coffee forecast. Please caffeinate responsibly.\n')
 print(df)
+
+# Output as bar graph using matplotlib
+# First access dates and "feels likes" from forecast dictionary to create lists
+temps = {}
+for key, val in forecast.items():
+    temps[key] = val[1]   
+dates = list(temps.keys())
+temps_F = list(temps.values())
+
+# Plot bar chart with dates on the x-axis and "feels likes" on the y
+plt.bar(dates, temps_F)
+plt.title('Coffee Forecast')
+plt.xlabel('Date')
+plt.ylabel('"Feels Like" (F)')
+plt.show()
