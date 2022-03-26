@@ -8,7 +8,7 @@ This program provides a user with their "Coffee Forecast" for the week based on 
 First, the user inputs their zip code. The positionstack API is then used to convert the zip code into a latitude and longitude. The latitude and longitude are used to gather the relative temperature (feels like) and conditions (clear, rain, etc.) using the Open Weather Map API. This data is compared to pre-defined metrics in a recommendation function to determine whether iced or hot coffee is suitable.
 
 ## Packages & Modules
-Coffee Forecast uses requests, datetime, matplotlib, and pandas.
+Coffee Forecast uses requests, datetime, and matplotlib.
 
 ## Setup Instructions
 1. [coffeeforecast.py](coffeeforecast.py) requires use of two API Keys. These are free and can be requested at the following links:
@@ -52,7 +52,7 @@ A dictionary of lists called "forecast" is created and populated with data from 
 #### Category 2: Utilize External Data:
 > Connect to an external/3rd party API and read data into your app
 
-Data from two APIs are used: positionstack and Open Weather Map
+Data from two APIs are used: positionstack and OpenWeatherMap
 
 #### Category 3: Data Display
 > Display data in tabular form

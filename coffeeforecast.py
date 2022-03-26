@@ -1,9 +1,7 @@
 # Import necessary packages
 import requests
-import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 
 # Get zip code from user and validate that it's 5 digits
 def get_zip():
@@ -86,18 +84,13 @@ def get_forecast():
         rec = recommendation()
         # Put into dictionary of lists
         forecast[day] = [rec, feels_like, conditions]
-    # Output as table using pandas module    
-    global df
-    df = pd.DataFrame.from_dict(forecast, orient = 'index', columns = ['Coffee Order','Feels Like', 'Conditions'])
-    
+   
 
 get_zip()
 get_location()
 get_weather()
 get_forecast()
 
-print('\n Here is your coffee forecast. Please caffeinate responsibly.\n')
-print(df)
 
 # Output as bar graph using matplotlib
 # First access dates and "feels likes" from forecast dictionary to create lists
@@ -125,18 +118,13 @@ for condition in conditions_list:
 
 # Plot bar chart with dates on the x-axis and "feels likes" on the y
 
-# Define legend colors
-clear_patch = mpatches.Patch(color='yellow', label='Clear')
-clouds_patch = mpatches.Patch(color = 'grey', label = 'Clouds')
-rain_patch = mpatches.Patch(color = 'blue', label = 'Rain')
-snow_patch = mpatches.Patch(color = 'whitesmoke', label = 'Snow')
-other_patch = mpatches.Patch(color = 'black', label = 'Other')
-
-plt.figure(figsize=(7,9))
+plt.figure(figsize=(10,10))
 plt.bar(keys_list, temp_list, color = conditions_colors, edgecolor = 'black')
+plt.table(cellText=[conditions_list, coffee_list], rowLabels=['Conditions', 'Coffee Order'], cellLoc='center',bbox=[0.0,-0.45,1,0.28])
 plt.title('Coffee Forecast')
-plt.xlabel('Date')
-plt.xticks(rotation = 35)
-plt.ylabel('"Feels Like" (F)')
-plt.legend(handles = [clear_patch, clouds_patch, rain_patch, snow_patch, other_patch])
+plt.ylabel('Feels Like, Deg (F)')
+plt.xticks(rotation=45)
+plt.subplots_adjust(left=0.3, bottom=0.4)
 plt.show()
+
+print('Please caffeinate responsibly.\n')

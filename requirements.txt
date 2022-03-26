@@ -14,11 +14,14 @@ packaging==21.3
 pandas==1.4.1
 Pillow==9.0.1
 platformdirs==2.5.1
+PyInputPlus==0.2.12
 pyparsing==3.0.7
+PySimpleValidate==0.2.12
 python-dateutil==2.8.2
 python-dotenv==0.19.2
 pytz==2021.3
 requests==2.27.1
 six==1.16.0
+stdiomask==0.0.6
 urllib3==1.26.8
 virtualenv==20.13.3
