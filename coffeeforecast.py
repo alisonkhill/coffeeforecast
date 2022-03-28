@@ -86,7 +86,7 @@ def recommendation():
     return recs
 
 
-# Output as bar graph using matplotlib
+# Assign conditions to colors for bar graph display
 def assign_colors(): 
     conditions_colors = []
     for condition in forecast[3]:
@@ -103,7 +103,7 @@ def assign_colors():
     return(conditions_colors)
 
 
-# Plot bar chart with dates on the x-axis and "feels likes" on the y
+# Plot bar chart with table data below
 def make_chart():
     plt.figure(figsize=(10,10))
     plt.bar(forecast[0], forecast[1], color = colors, edgecolor = 'black')
