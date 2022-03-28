@@ -49,31 +49,31 @@ Some ideas to improve this repo in the future include:
 ### Choose at least 1 item from each category on the Features List below and implement them in your project
 
 #### Category 1: Python Programming Basics
-> Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program.
+[x] Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program.
 
 Several lists are created and populated with data from the OpenWeatherMap API, including dates, relative temperatures, conditions, and coffee recommendations.
 
-> Create and call at least 3 functions or methods, at least one of which must return a value that is used somewhere else in your code. To clarify, at least one function should be called in your code, that function should calculate, retrieve, or otherwise set the value of a variable or data structure, return a value to where it was called, and use that value somewhere else in your code
+[x] Create and call at least 3 functions or methods, at least one of which must return a value that is used somewhere else in your code. To clarify, at least one function should be called in your code, that function should calculate, retrieve, or otherwise set the value of a variable or data structure, return a value to where it was called, and use that value somewhere else in your code
 
 There are six functions in Coffee Forecast, five of which return values that are used in other functions.
 
 #### Category 2: Utilize External Data:
-> Connect to an external/3rd party API and read data into your app
+[x] Connect to an external/3rd party API and read data into your app
 
 Data from two APIs are used: positionstack and OpenWeatherMap
 
 #### Category 3: Data Display
-> Display data in tabular form
-> Visualize data in a graph, chart, or other visual representation of data.
+[x] Display data in tabular form
+[x] Visualize data in a graph, chart, or other visual representation of data.
 
 The output of the program is a figure including a bar graph and a table showing the relative temperature, conditions, and coffee order recommended for each date. The bars are color-coded according to the conditions.
 
 #### Category 4: Best Practices
-> The program should utilize a virtual environment and document library dependencies in a requirements.txt file
+[x] The program should utilize a virtual environment and document library dependencies in a requirements.txt file
 
 See requirements.txt file in repo.
 
 #### Stretch Features (optional):
-> Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.
+[x]> Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.
 
 Matplotlib is used to display the forecast figure.
