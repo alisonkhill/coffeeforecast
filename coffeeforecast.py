@@ -7,9 +7,8 @@ import matplotlib.pyplot as plt
 # Obtain zip code from user and validate that it's 5 digits
 def get_zip():
     while True:
-        global zip_code
-        zip_code = input('Greetings, coffee drinker!\nWhat is your zip code?\n')
-        if len(zip_code) == 5:
+        zip_code = input('What is your zip code?\n')
+        if len(zip_code) == 5 and zip_code.isdigit():
             break
         else:
             print('Your zip code must be 5 digits.')
@@ -88,7 +87,6 @@ def recommendation():
 
 
 # Output as bar graph using matplotlib
-
 def assign_colors(): 
     conditions_colors = []
     for condition in forecast[3]:
@@ -118,6 +116,7 @@ def make_chart():
 
 
 # Calling functions
+print('Greetings, coffee drinker!')
 user_zip = get_zip()
 coordinates = get_location()
 weather = get_weather()
@@ -125,7 +124,7 @@ forecast = get_forecast()
 coffees = recommendation()
 colors = assign_colors()
 chart = make_chart()
-print('Your coffee forecast is ready. Please caffeinate responsibly.\n')
+print('Please caffeinate responsibly.\n')
 
 
 
