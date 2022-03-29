@@ -5,29 +5,31 @@ This repo is intended to fulfill the project requirements for the Code Louisvill
 
 This program provides a user with their "Coffee Forecast" for the week based on their zip code (United States zip codes only). The Coffee Forecast recommends whether to have iced coffee or hot coffee based on their local temperature and conditions.
 
-First, the user inputs their zip code. The positionstack API is then used to convert the zip code into a latitude and longitude. The latitude and longitude are used to gather the relative temperature (feels like) and conditions (clear, rain, etc.) using the Open Weather Map API. This data is compared to pre-defined metrics in a recommendation function to determine whether iced or hot coffee is suitable.
+First, the user inputs their zip code. The positionstack API is then used to convert the zip code into a latitude and longitude. The latitude and longitude are used to gather the relative temperature (feels like) and conditions (clear, rain, etc.) using the OpenWeatherMap API. This data is compared to pre-defined metrics in a recommendation function to determine whether iced or hot coffee is suitable.
+
+The output is a figure displaying the temperature, conditions, and coffee order for the next 7 days.
 
 ## Packages & Modules
 Coffee Forecast uses requests, datetime, and matplotlib.
 
 ## Setup Instructions
-1. [coffeeforecast.py](coffeeforecast.py) requires use of two API Keys. These are free and can be requested at the following links:
+1. Run `git clone https://github.com/alisonkhill/coffeeforecast.git` to clone this repo to your machine.
+
+2. Get free API keys at the following links:
 - [positionstack](https://positionstack.com/signup/free)
 - [OpenWeatherMap](https://home.openweathermap.org/users/sign_up)
 
-2. Next, set up a virtual environment:
-    - On Mac or Linux:
+3. In the coffeeforecast directory, set up a virtual environment:
+    - On Mac/Linux:
         - open the Terminal and create a virtual environment with the command `python3 -m venv virtual-env`
         - activate the virtual environment with the command `source virtual-env/bin/activate`
     - On Windows, 
         - open the Command Prompt and create a virtual environment with the command `python -m venv virtual-env`
         - activate the virtual environment with the command `virtual-env\Scripts\activate.bat`
 
-3. Install packages in the requirements.txt file
-    - Mac: `python3 -m pip install -r requirements.txt`
-    - Windows: `python -m pip install -r requirements.txt`
+4. Install packages in the requirements.txt file: `pip install -r requirements.txt`
 
-4. Finally, run `python coffeeforecast.py` and have your API keys handy.
+5. Finally, run `python coffeeforecast.py` and have your API keys handy.
 
 ## Future Enhancements
 Some ideas to improve this repo in the future include:

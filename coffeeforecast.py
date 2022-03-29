@@ -124,7 +124,7 @@ def main():
     coffees = recommendation(forecast)
     colors = assign_colors(forecast)
     make_chart(forecast, colors, coffees)
-    print('Please caffeinate responsibly.\n')
+    print('Please caffeinate responsibly.')
 
 # Calling main function
 main()
