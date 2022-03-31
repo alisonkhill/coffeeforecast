@@ -20,8 +20,8 @@ def get_zip():
 def get_location(zip_code):
     while True:
         try:
-            location_api_key = input('Please enter a positionstack API Key. You can request one for free at https://positionstack.com/signup/free \n')
-            LOCATION_URL = 'http://api.positionstack.com/v1/forward?access_key='+location_api_key+'&query='+zip_code+'&country=US&output=json'
+            location_api_key = input('Please enter a positionstack API Key. You can request one for free at https://positionstack.com/signup/free\n')
+            LOCATION_URL = 'http://api.positionstack.com/v1/forward?access_key='+location_api_key+'&query=postalcode '+zip_code+'&country=US&output=json'
             location_request = requests.get(LOCATION_URL)
             location_json = location_request.json()
             latitude = str(location_json.get('data')[0].get('latitude'))
@@ -109,7 +109,7 @@ def make_chart(forecast, colors, coffees):
     plt.table(cellText=[forecast[1], forecast[2], coffees], rowLabels=['Feels Like, Deg (F)','Conditions', 'Coffee Order'], cellLoc='center',bbox=[0.0,-0.45,1,0.28])
     plt.title('Coffee Forecast')
     plt.ylabel('Feels Like, Deg (F)')
-    plt.xticks(rotation=45)
+    plt.xticks(rotation=30)
     plt.subplots_adjust(left=0.3, bottom=0.4)
     plt.show()
 
